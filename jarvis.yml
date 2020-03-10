@@ -3,6 +3,4 @@ name: arrow_challenge
 
 features:
   - github
-
-
-
+  - login

@@ -1,12 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# User for ID 1
+User.create!(id: 1, email: "armandoomtzz@gmail.com", password: "armando")
 
-# Rows for ID 1
+# User for ID 2
+User.create!(id: 2, email: "armandog@icalialabs.com", password: "armando")
+
+# Arrows for ID 1
 5.times do |time|
   comment = "This is the #{time} arrow created using a seed"
   user_id = 1
@@ -14,7 +12,7 @@
   Arrow.create!(comment: comment, user_id: user_id, to_user_id: to_user_id)
 end
 
-# Rows for ID 2
+# Arrows for ID 2
 10.times do |time|
   comment = "This is the #{time} arrow created using a seed"
   user_id = 2

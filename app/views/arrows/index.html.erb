@@ -1,0 +1,13 @@
+<% if user_signed_in? %>
+  <% @arrows.each do |arrow| %>
+    <span><%= arrow.comment %></span>
+    <br>
+  <% end %>
+  <br><br><br><br>
+  <%= link_to "Sign out", destroy_user_session_path, :method=>'delete' %>
+<%else %>
+  <p>Please Sign Up or Sign In to view the content.</p>
+
+  <h2><%= link_to "Sign up", new_user_registration_path%>
+
+<% end %>

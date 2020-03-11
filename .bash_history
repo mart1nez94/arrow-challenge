@@ -4,3 +4,5 @@ clear
 git status
 clear
 git status
+rails test
+exit

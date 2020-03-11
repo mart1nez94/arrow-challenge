@@ -1,8 +1,14 @@
 # User for ID 1
-User.create!(id: 1, email: "armandoomtzz@gmail.com", password: "armando")
+User.create!( id: 1, 
+              email: "armandoomtzz@gmail.com",
+              name: "Armando Moreno",
+              password: "armando")
 
 # User for ID 2
-User.create!(id: 2, email: "armandog@icalialabs.com", password: "armando")
+User.create!( id: 2, 
+              email: "armandog@icalialabs.com",
+              name: "Guadalupe Moreno", 
+              password: "armando")
 
 # Arrows for ID 1
 5.times do |time|

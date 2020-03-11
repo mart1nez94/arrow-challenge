@@ -3,7 +3,8 @@
     <span><%= arrow.comment %></span>
     <br>
   <% end %>
-  <br><br><br><br>
+  <br />
+  <span><%= "Welcome, #{current_user.name}" %></span><br>
   <%= link_to "Sign out", destroy_user_session_path, :method=>'delete' %>
 <%else %>
   <p>Please Sign Up or Sign In to view the content.</p>

@@ -25,10 +25,16 @@ RSpec.describe Arrow, type: :model do
   end
 
   def create_user
-    User.new(id: 1, email: "prueba@gmail.com", password: "prueba")
+    User.new( id: 1, 
+              email: "prueba@gmail.com",
+              name: "Prueba", 
+              password: "prueba")
   end
 
   def create_another_user
-    User.new(id: 2, email: "prueba2@gmail.com", password: "prueba2")
+    User.new( id: 2, 
+              email: "prueba2@gmail.com",
+              name: "Prueba 2", 
+              password: "prueba2")
   end
 end

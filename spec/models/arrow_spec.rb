@@ -27,7 +27,7 @@ RSpec.describe Arrow, type: :model do
       arrow = Arrow.by_id(1, 1)
 
       expect(arrow.name).to eql 'Another User'
-      expect(arrow.comment).to eql 'Test'
+      expect(arrow.reason).to eql 'Test'
     end
   end
 
@@ -35,7 +35,7 @@ RSpec.describe Arrow, type: :model do
     User.new(id: id, email: email, name: name, password: password)
   end
 
-  def create_arrow(id, comment, user_id, to_user_id)
-    Arrow.new(id: id, comment: comment, user_id: user_id, to_user_id: to_user_id)
+  def create_arrow(id, reason, user_id, to_user_id)
+    Arrow.new(id: id, reason: reason, user_id: user_id, to_user_id: to_user_id)
   end
 end

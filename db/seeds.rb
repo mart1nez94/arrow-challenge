@@ -1,12 +1,10 @@
 # User for ID 1
-User.create!( id: 1, 
-              email: "armandoomtzz@gmail.com",
+User.create!( email: "armandoomtzz@gmail.com",
               name: "Armando Moreno",
               password: "armando")
 
 # User for ID 2
-User.create!( id: 2, 
-              email: "armandog@icalialabs.com",
+User.create!( email: "armandog@icalialabs.com",
               name: "Guadalupe Moreno", 
               password: "armando")
 

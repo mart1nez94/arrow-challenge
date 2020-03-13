@@ -8,4 +8,8 @@ class ArrowsController < ApplicationController
   def show
     @arrow = Arrow.by_id(params[:id], current_user.id)
   end
+
+  def create
+    
+  end
 end

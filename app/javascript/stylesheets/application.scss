@@ -1,1 +1,23 @@
 @import "~bootstrap/scss/bootstrap";
+
+$blue-login: #2ACFB9;
+
+/** Login */
+.background-login {
+  background-color: $blue-login;
+}
+
+.login-form {
+  padding-top: 100px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 100px;
+}
+
+.login-image {
+  padding-top: 400px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}

@@ -1,34 +1,52 @@
-<h2>Sign up</h2>
+<div class="row">
+  <div class="col-md-2 background-login">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
+  <div class="col-md-4">
+    <div class='login-form'>
+      <%= image_tag("login_logo.png", alt: "Login Logo", size: '100', class: 'rounded') %>
+      <br /><br />
+      <h2><b>Sign up</b></h2>
+      <br /><br /><br />
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autocomplete: "name" %>
+        <div class="field">
+          <%= f.label 'e-mail', class: 'text-uppercase' %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'icalier@icalialabs.com' %>
+        </div>
+        <br />
+        <div class="field">
+          <%= f.label :name, class: 'text-uppercase' %><br />
+          <%= f.text_field :name, autocomplete: "name", class: 'form-control', placeholder: 'icalier@icalialabs.com' %>
+        </div>
+        <br />
+        <div class="field">
+          <%= f.label :password, class: 'text-uppercase' %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password", class: 'form-control', placeholder: 'icalier@icalialabs.com' %>
+        </div>
+        <br />
+        <div class="field">
+          <%= f.label :password_confirmation, class: 'text-uppercase' %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', placeholder: 'icalier@icalialabs.com' %>
+        </div>
+        <br /><br />
+        <div class="actions">
+          <%= f.submit "Signup", class: 'btn btn-info' %>
+        </div>
+      <% end %>
+      <br /><br /><br />
+      <div class="text-center">
+        <span>Have an account? <%= render "devise/shared/links" %></span>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="col-md-6 background-login">
+    <div class="login-image">
+      <%= image_tag("login_image.png", alt: "Login Image") %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

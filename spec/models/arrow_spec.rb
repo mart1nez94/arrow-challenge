@@ -12,7 +12,7 @@ RSpec.describe Arrow, type: :model do
         create_arrow(time, "#{time} arrow", 2, 1).save
       end
   
-      arrows = Arrow.by_user(1)
+      arrows = Arrow.get_by_user(1)
   
       expect(arrows.size).to eql 3
     end
@@ -22,7 +22,7 @@ RSpec.describe Arrow, type: :model do
     it 'should return a specific arrow' do
       create_arrow(1, 'Test', 2, 1).save
 
-      arrow = Arrow.by_id(1, 1)
+      arrow = Arrow.get_by_id(1, 1)
 
       expect(arrow.name).to eql 'Another User'
       expect(arrow.reason).to eql 'Test'

@@ -3,6 +3,7 @@ class ArrowsController < ApplicationController
 
   def index
     @arrows = Arrow.by_user(current_user.id)
+    @arrow = Arrow.new
   end
 
   def show
@@ -10,6 +11,6 @@ class ArrowsController < ApplicationController
   end
 
   def create
-    
+
   end
 end

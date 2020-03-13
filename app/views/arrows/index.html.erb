@@ -6,3 +6,16 @@
   <span><%= "Welcome, #{current_user.name}" %></span><br>
   <%= link_to "Sign out", destroy_user_session_path, :method=>'delete' %>
 </div>
+<!-- Move this div to modal after install bootstrap -->
+<div>
+  <%= form_for @arrow, :url => url_for(:controller => 'arrows', :action => 'create') do |f| %>
+    <%= f.label :user %>
+    <%= f.collection_select :to_user_id, User.order(:name),:id,:name, include_blank: true %>
+    <br>
+    <%= f.label :reason %>
+    <%= f.text_area :reason %>
+    <br>
+    <%= f.submit 'Send' %>
+  <% end %>
+</div>
+<!-- /// -->

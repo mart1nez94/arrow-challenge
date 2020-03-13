@@ -2,10 +2,10 @@ class ArrowsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @arrows = Arrow.by_user(current_user.id) if user_signed_in?
+    @arrows = Arrow.by_user(current_user.id)
   end
 
   def show
-
+    @arrow = Arrow.by_id(params[:id], current_user.id)
   end
 end

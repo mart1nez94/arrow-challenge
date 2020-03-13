@@ -8,7 +8,7 @@ RSpec.describe Arrow, type: :model do
       create_user(2, 'another_user@email.com', 'Another User', 'user123').save
   
       3.times do |time|
-        create_arrow("#{time} arrow", 2, 1).save
+        create_arrow(time, "#{time} arrow", 2, 1).save
       end
   
       arrows = Arrow.by_user(1)
@@ -22,13 +22,12 @@ RSpec.describe Arrow, type: :model do
       create_user(1, 'user@email.com', 'User', 'user123').save
       create_user(2, 'another_user@email.com', 'Another User', 'user123').save
 
-      create_arrow('1 arrow', 2, 1).save
+      create_arrow(1, 'Test', 2, 1).save
 
-      arrow = Arrow.by_id(1)
+      arrow = Arrow.by_id(1, 1)
 
-      expect(arrow.comment).to eql '1 arrow'
-      expect(arrow.user_id).to eql 2
-      expect(arrow.to_user_id).to eql 1
+      expect(arrow.name).to eql 'Another User'
+      expect(arrow.comment).to eql 'Test'
     end
   end
 
@@ -36,7 +35,7 @@ RSpec.describe Arrow, type: :model do
     User.new(id: id, email: email, name: name, password: password)
   end
 
-  def create_arrow(comment, user_id, to_user_id)
-    Arrow.new(comment: comment, user_id: user_id, to_user_id: to_user_id)
+  def create_arrow(id, comment, user_id, to_user_id)
+    Arrow.new(id: id, comment: comment, user_id: user_id, to_user_id: to_user_id)
   end
 end

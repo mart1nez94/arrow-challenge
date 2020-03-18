@@ -1,32 +1,10 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-primary">
-  <%= link_to "Icalia Labs", root_path, class: "navbar-brand" %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarsExample04">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <%= link_to "Home", root_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Edit User", edit_user_registration_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Sign out", destroy_user_session_path, :method=>'delete', class: "nav-link" %>
-      </li>
-    </ul>
-  </div>
-</nav>
-
-<br />
 <div class="container">
-  <div class="card">
-    <div class="card-body">
-      <span>DATE: <%= ActiveSupport::TimeZone["Central Time (US & Canada)"].parse(@arrow.created_at.to_s).utc.to_date.strftime("%m/%b/%Y")[1..-1] %></span><br /><br />
-      <span>BY WHO: <%= image_tag("avatar.png", alt: "Login Logo", size: '50') %><%= @arrow.name.upcase %></span><br /><br />
-      <span>WHY: <%= @arrow.reason.upcase %></span><br /><br />
-      <%= link_to "Go back", root_path, class: "btn btn-primary" %>
+    <div class="card">
+        <div class="card-body">
+            <span>DATE: <%= ActiveSupport::TimeZone["Central Time (US & Canada)"].parse(@arrow.created_at.to_s).utc.to_date.strftime("%m/%b/%Y")[1..-1] %></span><br /><br />
+            <span>BY WHO: <%= image_tag("avatar.png", alt: "Login Logo", size: '50') %><%= @arrow.name.upcase %></span><br /><br />
+            <span>WHY: <%= @arrow.reason.upcase %></span><br /><br />
+            <%= link_to "Go back", root_path, class: "btn btn-primary" %>
+        </div>
     </div>
-  </div>
 </div>

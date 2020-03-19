@@ -1,9 +1,7 @@
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <span>DATE: <%= ActiveSupport::TimeZone["Central Time (US & Canada)"].parse(@arrow.created_at.to_s).utc.to_date.strftime("%m/%b/%Y")[1..-1] %></span><br /><br />
-            <span>BY WHO: <%= image_tag("avatar.png", alt: "Login Logo", size: '50') %><%= @arrow.name.upcase %></span><br /><br />
-            <span>WHY: <%= @arrow.reason.upcase %></span><br /><br />
+            <%= render "arrows/show_arrow" %>
             <%= link_to "Go back", root_path, class: "btn btn-primary" %>
         </div>
     </div>

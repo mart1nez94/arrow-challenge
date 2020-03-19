@@ -1,3 +1,5 @@
+require 'redcarpet/compat'
+
 class ArrowsController < ApplicationController
   before_action :authenticate_user!
 

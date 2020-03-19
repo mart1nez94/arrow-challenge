@@ -1,0 +1,4 @@
+<span>DATE: <%= ActiveSupport::TimeZone["Central Time (US & Canada)"].parse(@arrow.created_at.to_s).utc.to_date.strftime("%m/%b/%Y")[1..-1] %></span><br /><br />
+<span>BY WHO: <%= image_tag("avatar.png", alt: "Login Logo", size: '50') %><%= @arrow.name.upcase %></span><br /><br />
+<span>REASON:</span><br /><br />
+<div><%= simple_format(Markdown.new(@arrow.reason).to_html) %></div><br /><br />

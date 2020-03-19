@@ -2,26 +2,4 @@
 
 <%= render 'arrows/show_arrows' %>
 
-<!-- Modal -->
-<div class="modal fade" id="createArrowModal" tabindex="-1" role="dialog" aria-labelledby="createArrowModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="createArrowModalLabel">Create an Arrow</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <%= form_for @arrow, :url => url_for(:controller => 'arrows', :action => 'create') do |f| %>
-                <%= f.label 'FOR WHO?' %><br />
-                <%= f.collection_select :to_user_id, User.where.not(id: current_user.id).order(:name),:id,:name, {}, class: "form-control" %><br />
-                <%= f.label 'REASON' %><br />
-                <%= f.text_area :reason, class: 'form-control' %><br />
-                <%= f.hidden_field :user_id, value: current_user.id %><br />
-                <%= f.submit 'Send', class: 'btn btn-primary' %>
-                <% end %>
-            </div>
-        </div>
-    </div>
-</div>
+<%= render 'arrows/modals/create_arrow' %>

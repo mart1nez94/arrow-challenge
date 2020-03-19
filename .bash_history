@@ -33,3 +33,4 @@ rails db:migrate:reset
 rails console
 clear
 exit
+exit

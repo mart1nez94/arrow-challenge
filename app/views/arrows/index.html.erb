@@ -1,23 +1,6 @@
 <%= render 'arrows/user_information' %><br />
 
-<div class="container">
-    <div class="card border border-white">
-        <div class="row">
-            <div class="card-body">
-                <% @arrows.each do |arrow| %>
-                <div class="card col-md-4">
-                    <div class="card-body">
-                        <span>DATE: <%= ActiveSupport::TimeZone["Central Time (US & Canada)"].parse(arrow.created_at.to_s).utc.to_date.strftime("%m/%b/%Y")[1..-1] %></span><br /><br />
-                        <%= image_tag("avatar.png", alt: "Login Logo", size: '50') %><br /><br />
-                        <a href="<%= "arrows/#{arrow.id}" %>" class="btn btn-warning btn-small btn-block">More info</a>
-                    </div>
-                </div>
-                <% end %>
-            </div>
-        </div>
-    </div>
-</div>
-
+<%= render 'arrows/show_arrows' %>
 
 <!-- Modal -->
 <div class="modal fade" id="createArrowModal" tabindex="-1" role="dialog" aria-labelledby="createArrowModalLabel" aria-hidden="true">

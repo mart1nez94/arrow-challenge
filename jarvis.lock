@@ -2,3 +2,4 @@
 features:
 - github
 - login
+- heroku

@@ -5,7 +5,6 @@ class ArrowsController < ApplicationController
 
   def index
     @arrows = Arrow.get_by_user(current_user.id)
-    @arrow = Arrow.new
   end
 
   def show

@@ -1,58 +1,63 @@
 <div class="row">
-  <div class="col-md-2 background-login">
+    <div class="col-md-2 background-login">
 
-  </div>
-  <div class="col-md-4">
-    <div class='login-form'>
-      <%= image_tag("login_logo.png", alt: "Login Logo", size: '100', class: 'rounded') %>
-      <br /><br />
-      <h2><b>Welcome Icalier!</b></h2>
-      <h5>Sign in to continue</h5>
-      <br /><br /><br />
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field">
-          <%= f.label 'e-mail', class: 'text-uppercase' %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'icalier@icalialabs.com' %>
-        </div>
-        <br />
-        <div class="field">
-          <%= f.label :password, class: 'text-uppercase' %><br />
-          <%= f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: '*************' %>
-        </div>
-        <br />
-        <% if devise_mapping.rememberable? %>
-          <div class="field">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
-          </div>
-        <% end %>
-        <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-          <div class="field">
-            <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
-          </div>
-        <% end %>
-        <br />
-        <div class="actions">
-          <%= f.submit "Login", class: 'btn btn-info' %>
-        </div>
-      <% end %>
-      <br /><br />
-      <div class="text-center">
-        <span>Or you can sign up with: </span><br />
-        <button type="button" class="btn btn-outline-primary">G</button>
-        <button type="button" class="btn btn-outline-primary">F</button>
-        <br /><br /><br />
-        <span>Don't have an account? 
-          <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-            <a><%= link_to "Sign up", new_registration_path(resource_name) %></a>
-          <% end %>
-        </span>
-      </div>
     </div>
-  </div>
-  <div class="col-md-6 background-login">
-    <div class="login-image">
-      <%= image_tag("login_image.png", alt: "Login Image") %>
+    <div class="col-md-4">
+        <div class='login-form'>
+            <%= image_tag("login_logo.png", alt: "Login Logo", size: '100', class: 'rounded') %>
+            <br /><br />
+            <h2><b>Welcome Icalier!</b></h2>
+            <h5>Sign in to continue</h5>
+            <% flash.each do |message_type, message| %>
+            <div class="container">
+                <div class="alert alert-<%= message_type %>"><%= message %></div>
+            </div>
+            <% end %>
+            <br /><br /><br />
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="field">
+                <%= f.label 'e-mail', class: 'text-uppercase' %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'icalier@icalialabs.com' %>
+            </div>
+            <br />
+            <div class="field">
+                <%= f.label :password, class: 'text-uppercase' %><br />
+                <%= f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: '*************' %>
+            </div>
+            <br />
+            <% if devise_mapping.rememberable? %>
+            <div class="field">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+            </div>
+            <% end %>
+            <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+            <div class="field">
+                <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+            </div>
+            <% end %>
+            <br />
+            <div class="actions">
+                <%= f.submit "Login", class: 'btn btn-info' %>
+            </div>
+            <% end %>
+            <br /><br />
+            <div class="text-center">
+                <span>Or you can sign up with: </span><br />
+                <button type="button" class="btn btn-outline-primary">G</button>
+                <button type="button" class="btn btn-outline-primary">F</button>
+                <br /><br /><br />
+                <span>Don't have an account?
+                    <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+                    <a><%= link_to "Sign up", new_registration_path(resource_name) %></a>
+                    <% end %>
+                </span>
+            </div>
+        </div>
     </div>
-  </div>
+    <div class="col-md-6 background-login">
+        <div class="login-image">
+            <%= image_tag("login_image.png", alt: "Login Image") %>
+        </div>
+    </div>
 </div>

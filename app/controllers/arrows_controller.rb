@@ -12,7 +12,11 @@ class ArrowsController < ApplicationController
   end
 
   def create
-    Arrow.insert(arrow_params)
+    @arrow = Arrow.insert(arrow_params)
+    if @arrow.save
+      redirect_to root_path
+      flash[:success] = "Arrow sent!"
+    end
   end
 
   private 

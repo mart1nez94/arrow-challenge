@@ -4,15 +4,18 @@ class ArrowsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @arrows = Arrow.get_by_user(current_user.id)
+    @user = User.find(current_user.id)
+    @arrows = @user.arrows.order(created_at: :desc)
   end
 
   def show
-    @arrow = Arrow.get_by_id(params[:id], current_user.id)
+    @arrow = Arrow.joins("INNER JOIN users ON users.id = arrows.from_user_id")
+      .select("arrows.created_at, users.name, arrows.reason")
+      .find_by(arrows: { id: params[:id] })
   end
 
   def create
-    @arrow = Arrow.insert(arrow_params)
+    @arrow = Arrow.create!(arrow_params)
     if @arrow.save
       redirect_to root_path
       flash[:success] = "Arrow sent!"
@@ -22,6 +25,6 @@ class ArrowsController < ApplicationController
   private 
 
   def arrow_params
-    params.require(:arrow).permit(:to_user_id, :reason, :user_id)
+    params.require(:arrow).permit(:user_id, :reason, :from_user_id)
   end
 end

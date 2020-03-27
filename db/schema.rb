@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_03_11_211245) do
   create_table "arrows", force: :cascade do |t|
     t.string "reason"
     t.integer "user_id"
-    t.integer "to_user_id"
+    t.integer "from_user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

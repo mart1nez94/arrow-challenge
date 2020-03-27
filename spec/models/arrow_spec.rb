@@ -6,44 +6,36 @@ RSpec.describe Arrow, type: :model do
     create_user(2, 'another_user@email.com', 'Another User', 'user123').save
   end
 
-  context 'when need show all arrows' do
-    it 'should return an array with the user arrows got' do
-      3.times do |time|
-        create_arrow(time, "#{time} arrow", 2, 1).save
-      end
-  
-      arrows = Arrow.get_by_user(1)
-  
-      expect(arrows.size).to eql 3
+  subject { Arrow.new(reason: "Test", user_id: 1, from_user_id: 2) }
+
+  context "Validations" do
+    it "is valid with valid attributes" do
+      expect(subject).to be_valid
+    end
+
+    it "is not valid without a reason" do
+      subject.reason = nil
+      expect(subject).to_not be_valid
+    end
+
+    it "is not valid without an user_id" do
+      subject.user_id = nil
+      expect(subject).to_not be_valid
+    end
+
+    it "is not valid without a from_user_id" do
+      subject.from_user_id = nil
+      expect(subject).to_not be_valid
     end
   end
 
-  context 'when need show an arrow' do
-    it 'should return a specific arrow' do
-      create_arrow(1, 'Test', 2, 1).save
-
-      arrow = Arrow.get_by_id(1, 1)
-
-      expect(arrow.name).to eql 'Another User'
-      expect(arrow.reason).to eql 'Test'
-    end
-  end
-
-  context 'when need create an arrow' do
-    it 'valid if is with attributes' do
-      expect(Arrow.new(reason: "reason", user_id: 2, to_user_id: 1)).to be_valid
-    end
-
-    it 'should return a response' do
-      expect(create_arrow(1, 'Test', 2, 1).save).to be_truthy 
+  context "Associations" do
+    it "it's associated with the user model" do 
+      should belong_to(:user)
     end
   end
 
   def create_user(id, email, name, password)
     User.new(id: id, email: email, name: name, password: password)
-  end
-
-  def create_arrow(id, reason, user_id, to_user_id)
-    Arrow.new(id: id, reason: reason, user_id: user_id, to_user_id: to_user_id)
   end
 end

@@ -7,19 +7,3 @@ User.create!( email: "armandoomtzz@gmail.com",
 User.create!( email: "armandog@icalialabs.com",
               name: "Guadalupe Moreno", 
               password: "armando")
-
-# Arrows for ID 1
-5.times do |time|
-  reason = "This is the #{time} arrow created using a seed"
-  user_id = 1
-  to_user_id = 2
-  Arrow.create!(reason: reason, user_id: user_id, to_user_id: to_user_id)
-end
-
-# Arrows for ID 2
-10.times do |time|
-  reason = "This is the #{time} arrow created using a seed"
-  user_id = 2
-  to_user_id = 1
-  Arrow.create!(reason: reason, user_id: user_id, to_user_id: to_user_id)
-end

@@ -3,7 +3,7 @@ class CreateArrows < ActiveRecord::Migration[6.0]
     create_table :arrows do |t|
       t.string :reason
       t.integer :user_id
-      t.integer :to_user_id
+      t.integer :from_user_id
 
       t.timestamps
     end
